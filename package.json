@@ -6,7 +6,9 @@
     "dev": "next dev -p 3006",
     "build": "next build",
     "start": "node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export-db": "node scripts/export-db.js",
+    "import-db": "node scripts/import-db.js"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",

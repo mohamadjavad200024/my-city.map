@@ -135,6 +135,9 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -144,7 +147,7 @@ body {
 
 body {
   margin: 0;
-  padding: 0;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px) 0;
 }
 
 .container {
@@ -190,16 +193,16 @@ body {
 /* Header بالای صفحه */
 .top-header {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top, 0px);
   left: 50%;
   transform: translateX(-50%);
   width: 375px;
   max-width: 375px;
-  height: 60px;
+  height: calc(60px + env(safe-area-inset-top, 0px));
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 15px 10px;
   gap: 10px;
   z-index: 200;
   pointer-events: none;
@@ -1311,7 +1314,7 @@ body {
   max-width: 100%;
   background: rgba(20, 20, 25, 0.95);
   backdrop-filter: blur(10px);
-  padding: 9px 9px 9px 9px;
+  padding: 9px 9px calc(9px + env(safe-area-inset-bottom, 0px)) 9px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -1347,15 +1350,16 @@ body {
 
 .bottom-navigation-bar.drawer-open {
   position: fixed;
-  bottom: 0;
+  bottom: env(safe-area-inset-bottom, 0px);
   left: 50% !important;
   transform: translateX(-50%) !important;
   right: auto;
   width: 375px !important;
   max-width: 375px !important;
   z-index: 500;
-  height: 80vh;
+  height: calc(80vh - env(safe-area-inset-bottom, 0px));
   padding: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   display: flex;
   flex-direction: column;
   border-top-left-radius: 24px;
@@ -2327,9 +2331,10 @@ body {
   .top-header {
     width: 320px;
     max-width: 320px;
-    padding: 8px 12px;
-    height: 56px;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 8px 12px;
+    height: calc(56px + env(safe-area-inset-top, 0px));
     gap: 8px;
+    top: env(safe-area-inset-top, 0px);
   }
 
   .header-button {
@@ -2443,7 +2448,7 @@ body {
   }
 
   .bottom-navigation-bar {
-    padding: 7px 7px 7px 7px;
+    padding: 7px 7px calc(7px + env(safe-area-inset-bottom, 0px)) 7px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
   }
@@ -2453,6 +2458,9 @@ body {
     max-width: 320px !important;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    bottom: env(safe-area-inset-bottom, 0px);
+    height: calc(80vh - env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   .nav-button {
